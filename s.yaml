@@ -25,7 +25,7 @@ vars: # 全局变量
   region: cn-hangzhou
   service:
     name: trod-pub
-    description: 'Serverless Devs Web Framework Service'
+    description: 'Technical Risk Open Data Public Site'
 
 services:
   framework: # 业务名称/模块名称
@@ -48,7 +48,7 @@ services:
       service: ${vars.service}
       function:
         name: trod-app
-        description: 'Serverless Devs Web Framework Function'
+        description: 'Technical Risk Open Data Public Site'
         runtime: nodejs12
         codeUri: ./code
         handler: index.handler
