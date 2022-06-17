@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+    div(class="grey lighten-2" id="main")
+        div(class="row")
+            div(class="m10 offset-m1 s12 col")
+                div(class="row")
+                    div(class="m8 col")
+                        p(class="flow-text") 共找到 #{result.length} 条风险数据
+                        ul
+                            each v in result
+                                li 
+                                    p(class="flow-text") <a href="/risk/item/#{v.id}">#{v.title}</a>
+                                    p(class="grey-text text-darken-3") #{v.description}
+                    
+                        p(class="flow-text") <a href="/risk" class="grey-text">查看所有风险数据</a>
+
+                    div(class="s12 m4 col")
+                        div(class="lighten-1")
+                            h5(class="top-margin") 搜索关键词
+                            p <a href="/risk/q/#{keyword}">#{keyword}</a>
+                            
