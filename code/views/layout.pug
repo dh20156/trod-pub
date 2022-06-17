@@ -2,8 +2,41 @@ doctype html
 html
   head
     title= title
-    meta(name="keywords" content= keywords)
-    meta(name="description" content= description)
-    link(rel='stylesheet', href='https://serverless-devs-app-pkg.oss-cn-beijing.aliyuncs.com/web-framework-demo.css')
+    meta(http-equiv="content-type" content="text/html; charset=UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name = "keywords" content= keywords)
+    meta(name = "description" content= description)
+    link(rel="canonical" href=canonical)
+    link(rel="stylesheet", href="//static.trod.pub/resource/materialize.min.css")
+    link(rel="stylesheet", href="//static.trod.pub/resource/style.css")
   body
+    ul(class="side-nav right-aligned" id="mobile-nav" style="transition:all 0.5s;")
+        li <a href="#" class="navigation-menu"><i class="mdi-navigation-more-horiz medium navigation-menu"></i></a>
+        li <a href="/risk">风险项</a>
+
+    div(id="nav" class="pinned")
+        nav(class="navbar-fixed row flat white green-text" id="navBar")
+            div(class="nav-wrapper l10 offset-l1 m12 s12 col")
+                a(href="/" class="brand-logo green-text") <span class="mdi-action-logo"></span> TROD | 技术风险开放数据
+                a(href="#" class="button-collapse green-text") <i class="mdi-navigation-menu navigation-menu"></i>
+                a(href="#" class="hide-on-med-and-down right green-text navigation-menu") <i class="mdi-navigation-more-vert navigation-menu"></i>
+
+    nav(class="lighten-3 grey")
+        div(class="row nav-wrapper")
+            form(class="l10 offset-l1 s12 col" method="get" action="/risk")
+                div(class="input-field")
+                    input(id="q" name="q" type="search" required="" placeholder="查找风险项")/
+                    label(for="q") <a href onclick="document.forms[0].submit();return false;"><i class="mdi-action-search"></i></a>
+                    
+
     block content
+
+    footer(class="white")
+        div(class="row grey-text text-lighten-2")
+            div(class="s12 m4 l2 offset-l1 col")
+                ul(class="nav")
+                    li <a href="https://beian.miit.gov.cn" class="grey-text" target="_blank" rel="noopener noreferrer nofollow"><img class="icp" src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png"/> 浙ICP备2022017508</a>
+    
+    div(id="sidenav-overlay" style="z-index:-1;opacity:0;transition:all 0.5s;")/
+
+    script(type="text/javascript" src="//static.trod.pub/resource/trod.js")
