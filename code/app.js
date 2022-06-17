@@ -6,7 +6,8 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 
 const index = require('./routes/index')
-const users = require('./routes/users')
+const syncdata = require('./routes/syncdata')
+const risk = require('./routes/risk')
 
 // error handler
 onerror(app)
@@ -16,7 +17,7 @@ app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
-app.use(require('koa-static')(__dirname + '/public'))
+//app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
    extension: 'pug'
@@ -32,7 +33,8 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(syncdata.routes(), syncdata.allowedMethods())
+app.use(risk.routes(), risk.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
