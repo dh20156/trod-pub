@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+    div(class="grey lighten-2" id="main")
+        div(class="row")
+            div(class="m10 offset-m1 s12 col")
+                div(class="row")
+                    div(class="m8 col")
+                        h4 #{data.risk}
+                        p(class="grey-text")
+                            <strong>领域：</strong><a href="/risk/field/#{data.field}">#{data.field}</a> | 
+                            <strong>技术栈：</strong><a href="/risk/field/#{data.field}/#{data.stack}">#{data.stack}</a> | 
+                            <strong>严重等级：</strong><a href="/risk/severity/#{data.severity}">#{data.severity}</a>
+                        p(class="flow-text") 风险描述
+                        p(class="grey-text text-darken-3") #{data.description}
+                        p(class="flow-text") 修复建议解决方案
+                        p(class="grey-text text-darken-3") #{data.solution}
+                        p(class="flow-text") 如何定位
+                        p(class="grey-text text-darken-3") #{data.verify}
+                        p(class="flow-text") 参考链接
+                        each v in data.reference
+                            p <a href="#{v}" class="green-text" target="_blank" rel="noopener noreferrer nofollow">#{v} <i class="mdi-action-link"></i></a>
+
+                        p(class="flow-text") <a href="/risk" class="grey-text">查看所有风险数据</a>
+
+                    div(class="s12 m4 col")
+                        div(class="lighten-1")
+                            h5(class="top-margin") <i class="mdi-action-contributors"></i> 致谢贡献者
+                            p <a href="/risk/contributor/#{data.committer}">#{data.committer}</a>
+                            p <a href="#{data.contact}" class="green-text" target="_blank" rel="noopener noreferrer nofollow">联系贡献者 <i class="mdi-action-link"></i></a>
+                            
