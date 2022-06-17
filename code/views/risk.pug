@@ -1,0 +1,33 @@
+extends layout
+
+block content
+
+    div(class="grey lighten-2" id="main")
+        div(class="row")
+            div(class="m10 offset-m1 s12 col")
+                div(class="row")
+                    div(class="m8 col")
+                        h3(class="top-margin") TROD 数据
+                        p <strong>最新数据记录集：</strong> #{data.total}条
+                        p <strong>最后更新时间：</strong>  #{data.mtime}
+                        each v,k in data.risk
+                            h4(class="top-margin") <i class="mdi-action-field"></i> #{k}
+                            each j,i in v
+                                p(class="flow-text") <i class="mdi-action-stack"></i> #{i}风险项
+                                ul
+                                    each x in j
+                                        li <a href="/risk/item/#{x.id}">#{x.risk}</a>
+
+                        p(class="flow-text") 没有你感兴趣的风险数据？
+                        p <a href="https://github.com/trod-pub/trod/issues" class="green-text" target="_blank" rel="noopener noreferrer nofollow">立即提交 issue 邀请其他开发者一起寻找解决方案 <i class="mdi-action-issue"></i></a>
+                        p <a href="https://github.com/trod-pub/trod#如何贡献" class="green-text" target="_blank" rel="noopener noreferrer nofollow">加入我们一起贡献你遇到的风险数据 <i class="mdi-action-link"></i></a>
+                    
+                    div(class="s12 m4 col")
+                        div(class="lighten-1")
+                            h5(class="top-margin") <i class="mdi-action-contributors"></i> 致谢贡献者
+                            ul
+                            each v,k in data.contributor
+                                li <a href="/risk/contributor/#{k}">#{k}</a>
+
+                            p(class="top-margin") <a href="https://github.com/trod-pub/trod#如何贡献" class="green-text" target="_blank" rel="noopener noreferrer nofollow">我也要贡献风险数据 <i class="mdi-action-link"></i></a>
+                            
