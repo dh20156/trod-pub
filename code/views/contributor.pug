@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+    div(class="grey lighten-2" id="main")
+        div(class="row")
+            div(class="m10 offset-m1 s12 col")
+                div(class="row")
+                    div(class="m8 col")
+                        p(class="flow-text") 感谢 #{contributor} 为我们贡献了 #{data.length} 条风险数据
+                        ul
+                            each v in data
+                                li 
+                                    p(class="flow-text") <a href="/risk/item/#{v.id}">#{v.risk}</a>
+                    
+                        p(class="flow-text") <a href="/risk" class="grey-text">查看所有风险数据</a>
+
+                    div(class="s12 m4 col")
+                        div(class="lighten-1")
+                            h5(class="top-margin") <i class="mdi-action-contributors"></i> 致谢贡献者
+                            p <a href="/risk/contributor/#{contributor}">#{contributor}</a>
+                            
